@@ -26,6 +26,3 @@ def traitement_paquet(paquet):
 sniff(filter="", count=0,prn=traitement_paquet,iface=interface)
 
 
-
-
-#Fonctionne parfaitement
