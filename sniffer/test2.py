@@ -76,3 +76,12 @@ def get_packet_layers(packet):
         layer_list.append(layer.name)
         layer = layer.payload
     return layer_list
+
+
+def traitement_paquet(paquet):
+    affichage_auto(paquet)
+    paquet = Paquet(paquet)
+    #paquet.affiche_paquet()
+    
+
+sniff(filter="udp port 67 or 68", count=0,prn=traitement_paquet,iface='enp0s31f6')
