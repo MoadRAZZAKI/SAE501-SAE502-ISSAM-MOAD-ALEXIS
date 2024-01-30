@@ -1,4 +1,4 @@
 # Voici l'architecture de notre application
 
 
-![Alt text](img/architectureprojet.jpg)
+![Alt text](img/architectureprojet.png)
