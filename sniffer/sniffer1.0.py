@@ -95,3 +95,20 @@ def paquet_to_dict(paquet): #Transforme un paquet en dictionnaire
                 if dictionnaire[layer][element] == None:
                     dictionnaire[layer][element] = paquet[layer].getfieldval(element)
     return dictionnaire
+
+def affiche_paquet(paquet):
+    #paquet.show()
+    paquet = paquet_to_dict(paquet)
+    print(paquet)
+    paquets.ajoute(paquet)
+    #paquet.show()
+    #if paquet.haslayer(DHCP):
+        #print("J'ai un paquet DHCP")
+     #   dhcp_layer = paquet.getlayer(DHCP)
+        #print(dhcp_layer.options)
+    
+    #print(paquet) #Affiche le contenu complet du paquet
+
+
+#"udp port 67 or 68"
+sniff(filter="udp port 67 or 68", count=0,prn=affiche_paquet,iface='all')
