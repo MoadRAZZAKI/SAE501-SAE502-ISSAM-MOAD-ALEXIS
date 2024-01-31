@@ -114,3 +114,51 @@ def affiche_paquet(paquet):
 sniff(filter="udp port 67 or 68", count=0,prn=affiche_paquet,iface='all')
 
 
+'''dictionnaire = {
+    "Type": None,
+    "Ether":
+        {
+            "dst": None,
+            "src": None,
+            "type": None
+        },
+    "IP":
+        {
+            "version": None,
+            "src": None,
+            "dst": None,
+            "ttl": None
+        },
+    "DHCP":
+        {
+            #"requested_addr": None,
+            #"hostname": None
+            "options":
+            {
+                "hostname": None,
+                "requested_addr": None,
+                "message-type": None
+            }
+            
+        },
+    "UDP":
+        {
+            "sport": None,
+            "dport": None,
+            "len": None
+        }
+}'''
+
+type_message = {
+    1: "DHCPDISCOVER",
+    2: "DHCPOFFER",
+    3: "DHCPREQUEST",
+    4: "DHCPDECLINE",
+    5: "DHCPACK",
+    6: "DHCPNAK",
+    7: "DHCPRELEASE",
+    8: "DHCPINFORM",
+
+}
+
+'''
