@@ -162,3 +162,43 @@ type_message = {
 }
 
 '''
+Pour extraire les infos à partir d'un layer et les placer dans le dictionnaire:
+if c.haslayer(Ether):
+     dictionnaire["Ether"] = {}
+     for element in c[Ether].fields_desc:
+             dictionnaire["Ether"][element.name] = c[Ether].getfieldval(element.name)
+
+'''
+
+paquet = paquets.liste[0]
+'''
+#layers = [layer.name for layer in paquet.iterpayloads()] # pour avoir tous les layers d'un paquet
+for layer in dictionnaire.keys():
+    if paquet.haslayer(layer):
+        for element in dictionnaire[layer].keys():
+            dictionnaire[layer][element] = paquet[layer].getfieldval(element) 
+
+
+'''
+
+
+
+
+
+#layers = [layer.name for layer in paquet.iterpayloads()] # pour avoir tous les layers d'un paquet
+'''for layer in dictionnaire.keys():
+    if paquet.haslayer(layer):
+        if layer == 'DHCP':
+            message_type, requested_addr, hostname = paquet[DHCP].getfieldval('options')[:3]
+            dictionnaire['DHCP']['options']['hostname'] = hostname[1]
+            dictionnaire['DHCP']['options']['requested_addr'] = requested_addr[1]
+            dictionnaire['DHCP']['options']['message-type'] = message_type[1]
+            dictionnaire['Type'] = type_message[message_type[1]]
+        for element in dictionnaire[layer].keys():
+            if dictionnaire[layer][element] == None:
+                dictionnaire[layer][element] = paquet[layer].getfieldval(element) '''
+
+#print(dictionnaire)
+#print(json.dumps(dictionnaire))
+
+#print(paquets.liste[0])
