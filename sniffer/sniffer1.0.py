@@ -202,3 +202,20 @@ for layer in dictionnaire.keys():
 #print(json.dumps(dictionnaire))
 
 #print(paquets.liste[0])
+
+
+'''
+def to_dict(self): # Transforme un paquet en dictionnaire
+        dictionnaire = self.dictionnaire 
+        type_message = self.type_message
+        for layer in dictionnaire.keys():
+            if self.paquet.haslayer(layer):
+                dictionnaire['Type'] = type_message[self.paquet[DHCP].getfieldval('options')[0][1]]
+                dictionnaire['DHCP']['options'] = self.paquet[DHCP].getfieldval('options')[1]
+                for element in dictionnaire[layer].keys():
+                    if dictionnaire[layer][element] == None:
+                        dictionnaire[layer][element] = self.paquet[layer].getfieldval(element)
+        return dictionnaire
+    def affiche_paquet(self): #Affiche un paquet grace à l'attribut prn de la fonction sniff
+        print(self.to_dict())
+'''
