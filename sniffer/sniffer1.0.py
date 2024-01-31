@@ -112,3 +112,5 @@ def affiche_paquet(paquet):
 
 #"udp port 67 or 68"
 sniff(filter="udp port 67 or 68", count=0,prn=affiche_paquet,iface='all')
+
+
