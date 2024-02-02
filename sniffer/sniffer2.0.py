@@ -103,3 +103,20 @@ def affichage_auto(paquet):
     #print("le type c'est ",type) 
     #print(dico)
     traitement_par_type[type_msg](dico)
+
+
+def get_packet_layers(packet):
+    layer_list = []
+    layer = packet
+    while layer:
+        layer_list.append(layer.name)
+        layer = layer.payload
+    return layer_list
+
+def traitement_paquet(paquet):
+    affichage_auto(paquet)
+    paquet = Paquet(paquet)
+    #paquet.affiche_paquet()
+    
+
+sniff(filter="udp port 67 or 68", count=6,prn=traitement_paquet,iface='Ethernet0')
