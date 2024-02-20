@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
+
+
 def ip_to_int(ip_address):
     octets = ip_address.split('.')
     return int(octets[0]) * 256 ** 3 + int(octets[1]) * 256 ** 2 + int(octets[2]) * 256 + int(octets[3])
