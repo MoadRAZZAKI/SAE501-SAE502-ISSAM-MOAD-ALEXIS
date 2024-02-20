@@ -38,7 +38,7 @@ def calculate_ips():
        
         count = len(ip_list)
         pourcent=round(count*100/v,1)
-        label_count.config(text=f" Pourcentage: {pourcent}%")
+        label_count.configure(text=f" Pourcentage: {pourcent}%")
         tree.delete(*tree.get_children())
         for ip in ip_list:
             tree.insert('', 'end', values=(ip,))
@@ -55,7 +55,7 @@ def temporary_remove_ip(ip_to_remove):
             count = len(ip_list)
             pourcent=round(count*100/v,1)
             print (pourcent)
-            label_count.config(text=f"Pourcentage: {pourcent}%")
+            label_count.configure(text=f"Pourcentage: {pourcent}%")
             
             root.after(10000, lambda: restore_ip(ip_to_remove))
             break
@@ -67,7 +67,7 @@ def restore_ip(ip_to_restore):
     ip_list.append(ip_to_restore)
     count = len(ip_list)
     pourcent=round(count*100/v,1)
-    label_count.config(text=f"Pourcentage: {pourcent}%")
+    label_count.configure(text=f"Pourcentage: {pourcent}%")
     tree.insert('', 'end', values=(ip_to_restore,))
 
 def remove_temporarily():
