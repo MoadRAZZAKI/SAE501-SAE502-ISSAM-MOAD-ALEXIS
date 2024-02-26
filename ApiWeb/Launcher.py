@@ -1,6 +1,9 @@
 import json
 from flask import Flask, jsonify, request
 from data_manager import DBConnector
+import pandas as pd
+from flask import make_response
+import io
 
 app = Flask(__name__)
 db_connector = DBConnector()
@@ -83,6 +86,23 @@ def get_dhcp_packets_by_server_id(server_id):
     data = db.packet_DHCP.find({"DHCP.options": server_id})  
     result = [{"Type": item["Type"], "Ether": item["Ether"], "IP": item["IP"], "DHCP": item["DHCP"], "UDP": item["UDP"], "BOOTP": item["BOOTP"]} for item in data]
     return jsonify(result)
+
+
+@app.route('/api/data/json/<packet_type>', methods=['GET'])
+def filter_data_by_type_json(packet_type):
+    db = db_connector.connect()
+    data = db.packet_DHCP.find({"Type": packet_type})  
+    result = [{"Type": item["Type"], "Ether": item["Ether"], "IP": item["IP"], "DHCP": item["DHCP"], "UDP": item["UDP"], "BOOTP": item["BOOTP"]} for item in data]
+    
+    # Convert result to JSON
+    json_data = json.dumps(result, indent=4)
+    
+    # Prepare response
+    response = make_response(json_data)
+    response.headers['Content-Type'] = 'application/json'
+    response.headers['Content-Disposition'] = 'attachment; filename=data.json'
+    
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
