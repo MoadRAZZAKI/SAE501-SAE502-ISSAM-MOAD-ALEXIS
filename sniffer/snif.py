@@ -134,3 +134,35 @@ def affichage_auto(paquet):
     liste_paquets.append(dico)
 
 
+def get_packet_layers(packet):
+    layer_list = []
+    layer = packet
+    while layer:
+        layer_list.append(layer.name)
+        layer = layer.payload
+    return layer_list
+
+def traitement_paquet(paquet):
+    affichage_auto(paquet)
+    paquet = Paquet(paquet)
+    #paquet.affiche_paquet()
+
+
+    
+
+def lancement_sniffing(interface,*args):
+    print("lancement du sniff")
+    #sniff(filter="udp port 67 or 68", count=6,prn=traitement_paquet,iface=interface)
+    sniffer = AsyncSniffer(prn=traitement_paquet,iface="enp0s31f6", filter="udp port 67 or 68")
+    return sniffer
+
+
+
+#sniff(filter="udp port 67 or 68", count=6,prn=traitement_paquet,iface=)
+
+#app.selected_interface.trace_add('write', lancement_sniffing(app))
+    
+#app.selected_interface.trace_variable('w', lambda *args: lancement_sniffing(app))
+
+
+
