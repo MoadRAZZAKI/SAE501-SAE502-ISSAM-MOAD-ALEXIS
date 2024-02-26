@@ -77,6 +77,13 @@ def get_dhcp_packets_by_destination_port(destination_port):
     result = [{"Type": item["Type"], "Ether": item["Ether"], "IP": item["IP"], "DHCP": item["DHCP"], "UDP": item["UDP"], "BOOTP": item["BOOTP"]} for item in data]
     return jsonify(result)
 
+# Route to get DHCP packets by server ID
+@app.route('/api/data/dhcp/server_id/<server_id>', methods=['GET'])
+def get_dhcp_packets_by_server_id(server_id):
+    db = db_connector.connect()
+    data = db.packet_DHCP.find({"DHCP.options": server_id})  
+    result = [{"Type": item["Type"], "Ether": item["Ether"], "IP": item["IP"], "DHCP": item["DHCP"], "UDP": item["UDP"], "BOOTP": item["BOOTP"]} for item in data]
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)
