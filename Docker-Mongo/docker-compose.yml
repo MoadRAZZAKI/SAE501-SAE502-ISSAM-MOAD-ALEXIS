@@ -8,6 +8,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: data
+      MONGO_INITDB_COLLECTION: packet_dhcp
     ports:
       - "27017:27017"
     volumes:
