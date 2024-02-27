@@ -53,3 +53,24 @@ def nak(paquet):
 def inform(paquet):
     print(f"DHCPINFORM")
 
+
+
+def transfert_interface(paquet):
+    current_time = time.strftime("%H:%M:%S")
+    ip_src,ip_dst = paquet['IP']['src'], paquet['IP']['dst']
+    type_paquet = paquet['Type']
+    mac_src,mac_dst = paquet['Ethernet']['src'], paquet['Ethernet']['dst']
+    info = paquet
+    return current_time, ip_src, ip_dst, type_paquet, mac_src, mac_dst, paquet
+
+
+traitement_par_type = {
+    "DHCPDISCOVER": discover,
+    "DHCPOFFER": offer,
+    "DHCPREQUEST": request,
+    "DHCPDECLINE": decline,
+    "DHCPACK": ack,
+    "DHCPNAK": nak,
+     "DHCPRELEASE": release,
+    "DHCPINFORM": inform
+}
