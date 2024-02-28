@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 
 services:
   mongodb:
@@ -10,7 +10,9 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
       MONGO_INITDB_DATABASE: data
       MONGO_INITDB_COLLECTION: packet_dhcp
+    command: mongod --replSet rs0 --keyFile /data/db/mongo-keyfile
     ports:
       - "27017:27017"
     volumes:
       - ./database-data:/data/db
+      - ./mongo-keyfile:/data/db/mongo-keyfile
