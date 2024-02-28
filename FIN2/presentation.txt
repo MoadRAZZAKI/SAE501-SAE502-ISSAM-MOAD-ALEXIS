@@ -1,0 +1,8 @@
+1, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
+2, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
+3, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
+4, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
+
+5, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
+6, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
+7, time, 192.168.1.5, 192.168.1.2, DHCPACK, macsrc, macdst, fake data
