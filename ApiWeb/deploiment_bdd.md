@@ -51,4 +51,8 @@ rs.initiate()
 
 - si le replica est en Secondary , on se déconnecte du shell mongodb et du shell docker , et on se reconnecte , cela permet de régler le problème .
 
+- n'oubliez pas d'ajouter l'ip de la machine hôte pour permettre aux machines du même réseau d'interroger la bdd : 
 
+```
+rs.add({host:"10.203.0.149:27017",votes: 1})
+```
