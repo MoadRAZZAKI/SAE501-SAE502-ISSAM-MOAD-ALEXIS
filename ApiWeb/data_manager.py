@@ -24,5 +24,5 @@ class DBConnector:
             self.uri = f"mongodb://{quote_plus(self.mongo_username)}:{quote_plus(self.mongo_password)}@{parsed_uri.hostname}:{parsed_uri.port}{parsed_uri.path}"
 
         # Specify direct connection
-        client = MongoClient(self.uri, connect=False, directConnection=True)
+        client = MongoClient(self.uri)
         return client.get_database(self.db_name)
