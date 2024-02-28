@@ -4,6 +4,7 @@ from data_manager import DBConnector
 from flask_httpauth import HTTPBasicAuth
 
 app = Flask(__name__)
+
 db_connector = DBConnector()
 auth = HTTPBasicAuth()
 
@@ -114,4 +115,4 @@ def filter_data_by_type_json(packet_type):
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='192.168.39.246')
