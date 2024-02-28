@@ -7,8 +7,8 @@ class DBConnector:
         with open(config_path, 'r') as config_file:
             config = json.load(config_file)
 
-            self.mongo_username = "root"  # Nom d'utilisateur MongoDB
-            self.mongo_password = "password"  # Mot de passe MongoDB
+            self.mongo_username = "root"  # MongoDB username
+            self.mongo_password = "password"  # MongoDB password
 
             self.uri = unquote(config['MONGO_URI'])
             self.db_name = config['DB_NAME']
@@ -19,10 +19,10 @@ class DBConnector:
 
         parsed_uri = urlparse(self.uri)
 
-        # Si l'URI ne contient pas de nom d'utilisateur ni de mot de passe, nous les ajoutons
+        # If the URI does not contain a username or password, we add them
         if not parsed_uri.username and not parsed_uri.password:
             self.uri = f"mongodb://{quote_plus(self.mongo_username)}:{quote_plus(self.mongo_password)}@{parsed_uri.hostname}:{parsed_uri.port}{parsed_uri.path}"
 
-        client = MongoClient(self.uri, connect=False)
+        # Specify direct connection
+        client = MongoClient(self.uri, connect=False, directConnection=True)
         return client.get_database(self.db_name)
-
