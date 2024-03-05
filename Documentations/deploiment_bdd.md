@@ -1,6 +1,6 @@
 ## installation de l'image docker 
 
-- Dans le fichier docker-compose.yml se trouve le code pour lancer une instance MongoDB avec authentification et réplication de données,
+- Dans le fichier /Docker-Mongo/docker-compose.yml se trouve le code pour lancer une instance MongoDB avec authentification et réplication de données,
 
 ## lancement de l'image docker 
 
