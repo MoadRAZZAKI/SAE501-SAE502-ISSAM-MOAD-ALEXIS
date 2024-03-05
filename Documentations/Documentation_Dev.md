@@ -28,4 +28,22 @@ Nous avons également développer une API RESTful permettant d'interagir avec le
 
 Une authentification sécurisée et contrôle d'accès pour garantir la confidentialité des données.
 
-Documentation complète de l'API pour faciliter son utilisation par les développeurs tiers.
+
+## 2. Partie API WEB (REST) : 
+
+Dans cette partie du projet, j'ai été en charge de la récupération directe des données depuis la base de données Mongo-DB. Ces données sont présentes en temps réel à l'aide du logiciel sniffer.
+
+Comme l'API est un logiciel distinct, j'ai adopté une approche basée sur la Clean Architecture.
+
+J'ai donc structuré le code de l'application en plusieurs couches, chacune ayant une responsabilité spécifique. Ces couches sont organisées comme suit :
+
+- **Couche Domaine** : Cette couche est le fondement de l'architecture. Elle est responsable de la connexion à la base de données.
+- **Couche Modules** : Cette couche comprend l'ensemble des fonctions que nous allons utiliser dans notre API.
+
+Étant donné qu'il n'y a pas d'interaction avec l'utilisateur dans ce projet, il n'y a pas de couche d'application, car toutes les données sont présentées au format JSON.
+
+
+
+
+
+
