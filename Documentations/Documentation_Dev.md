@@ -37,13 +37,110 @@ Comme l'API est un logiciel distinct, j'ai adopté une approche basée sur la Cl
 
 J'ai donc structuré le code de l'application en plusieurs couches, chacune ayant une responsabilité spécifique. Ces couches sont organisées comme suit :
 
-- **Couche Domaine** : Cette couche est le fondement de l'architecture. Elle est responsable de la connexion à la base de données.
+- **Couche Données** : Cette couche est le fondement de l'architecture. Elle est responsable de la connexion à la base de données.
 - **Couche Modules** : Cette couche comprend l'ensemble des fonctions que nous allons utiliser dans notre API.
 
 Étant donné qu'il n'y a pas d'interaction avec l'utilisateur dans ce projet, il n'y a pas de couche d'application, car toutes les données sont présentées au format JSON.
 
 
+## Code (data_manager.py) sous python : 
+
+
+```python
+import json
+from urllib.parse import unquote, urlparse, quote_plus
+from pymongo import MongoClient
+
+class DBConnector:
+    def __init__(self, config_path='C:\\Users\\m.razzaki\\OneDrive - Biodiv-wind\\Bureau\\SAE501\\SAE501\\ApiWeb\\appsettings.json'):
+        with open(config_path, 'r') as config_file:
+            config = json.load(config_file)
+
+            self.mongo_username = "root"  # MongoDB user
+            self.mongo_password = "password"  # MongoDB mdp
+
+            self.uri = unquote(config['MONGO_URI'])
+            self.db_name = config['DB_NAME']
+
+    def connect(self):
+        if not self.uri.startswith('mongodb://') and not self.uri.startswith('mongodb+srv://'):
+            raise ValueError('Invalid MongoDB URI: %s' % self.uri)
+
+        parsed_uri = urlparse(self.uri)
+
+        # ajout du username et mdp si l'uri ne les contient pas
+        if not parsed_uri.username and not parsed_uri.password:
+            self.uri = f"mongodb://{quote_plus(self.mongo_username)}:{quote_plus(self.mongo_password)}@{parsed_uri.hostname}:{parsed_uri.port}{parsed_uri.path}"
+
+        # on specifie le type de connexion , avant c'était cnx directe
+        client = MongoClient(self.uri)
+        return client.get_database(self.db_name)
+
+
+```
 
 
 
+### DBConnector :
+La classe `DBConnector` dans notre script Python facilite les connexions à notre base de données MongoDB. Elle nous permet d'interagir avec la collection MongoDB qui stocke les trames DHCP et d'effectuer des opérations sur la base de données. Voici les principaux composants et méthodes :
 
+### Initialisation de la Classe
+
+```python
+class DBConnector:
+    def __init__(self, config_path='C:\\Users\\m.razzaki\\OneDrive - Biodiv-wind\\Bureau\\SAE501\\SAE501\\ApiWeb\\appsettings.json'):
+        """
+        Initialise l'instance DBConnector.
+
+        Arguments:
+            config_path (str): Chemin vers le fichier de configuration (par défaut : appsettings.json).
+        """
+        with open(config_path, 'r') as config_file:
+            config = json.load(config_file)
+
+            # Identifiants MongoDB
+            self.mongo_username = "root"
+            self.mongo_password = "password"
+
+            # Décodage de l'URI MONGO à partir de la configuration
+            self.uri = unquote(config['MONGO_URI'])
+            self.db_name = config['DB_NAME']
+```
+
+### Connexion à MongoDB
+
+La méthode `connect()` établit une connexion à la base de données MongoDB. Elle gère l'URI, le nom d'utilisateur et le mot de passe. Si l'URI ne commence pas par `mongodb://` ou `mongodb+srv://`, une `ValueError` est levée.
+
+```python
+    def connect(self):
+        """
+        Établit une connexion à la base de données MongoDB.
+
+        En retour:
+            pymongo.database.Database : La base de données connectée.
+        """
+        if not self.uri.startswith('mongodb://') and not self.uri.startswith('mongodb+srv://'):
+            raise ValueError(f'URI MongoDB invalide : {self.uri}')
+
+        parsed_uri = urlparse(self.uri)
+
+        # Ajoute le nom d'utilisateur et le mot de passe à l'URI s'ils ne sont pas déjà présents
+        if not parsed_uri.username and not parsed_uri.password:
+            self.uri = f"mongodb://{quote_plus(self.mongo_username)}:{quote_plus(self.mongo_password)}@{parsed_uri.hostname}:{parsed_uri.port}{parsed_uri.path}"
+
+        # Spécifie le type de connexion (auparavant connexion directe)
+        client = MongoClient(self.uri)
+        return client.get_database(self.db_name)
+```
+
+### Exemple d'utilisation
+
+Pour utiliser le `DBConnector`, il faut créer une instance et appeler la méthode `connect()` :
+
+```python
+if __name__ == "__main__":
+    connector = DBConnector()
+    db = connector.connect()
+```
+
+Attention ! il faut remplacer les valeurs fictives (`root`, `password` et le chemin réel du fichier de configuration) par des identifiants MongoDB spécifiques et votre configuration.
