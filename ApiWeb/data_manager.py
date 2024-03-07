@@ -7,8 +7,8 @@ class DBConnector:
         with open(config_path, 'r') as config_file:
             config = json.load(config_file)
 
-            self.mongo_username = "root"  # MongoDB user
-            self.mongo_password = "password"  # MongoDB mdp
+            self.mongo_username = config['MONGO_USERNAME']  # MongoDB user
+            self.mongo_password = config['MONGO_PASSWORD']  # MongoDB mdp
 
             self.uri = unquote(config['MONGO_URI'])
             self.db_name = config['DB_NAME']

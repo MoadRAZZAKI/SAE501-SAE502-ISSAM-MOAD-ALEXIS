@@ -40,6 +40,8 @@ J'ai donc structuré le code de l'application en plusieurs couches, chacune ayan
 - **Couche Données** : Cette couche est le fondement de l'architecture. Elle est responsable de la connexion à la base de données.
 - **Couche Modules** : Cette couche comprend l'ensemble des fonctions que nous allons utiliser dans notre API.
 
+Il faut savoir également qu'il y a un fichier de configuration avec les variables de connexion à la BDD.
+
 Étant donné qu'il n'y a pas d'interaction avec l'utilisateur dans ce projet, il n'y a pas de couche d'application, car toutes les données sont présentées au format JSON.
 
 

@@ -2,12 +2,14 @@ import json
 from flask import Flask, jsonify, request, make_response
 from data_manager import DBConnector
 from flask_httpauth import HTTPBasicAuth
+import socket
+
 
 app = Flask(__name__)
 
 db_connector = DBConnector()
 auth = HTTPBasicAuth()
-
+host = socket.gethostbyname(socket.gethostname())
 
 with open('C:\\Users\\m.razzaki\\OneDrive - Biodiv-wind\\Bureau\\SAE501\\SAE501\\ApiWeb\\config.json', 'r') as fichier:
     users = json.load(fichier)
@@ -115,4 +117,4 @@ def filter_data_by_type_json(packet_type):
     return response
 
 if __name__ == '__main__':
-    app.run(host='192.168.39.246')
+    app.run(host=host)
