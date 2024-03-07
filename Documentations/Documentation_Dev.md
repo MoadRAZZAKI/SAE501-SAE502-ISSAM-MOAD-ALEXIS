@@ -336,3 +336,35 @@ Voici les principales fonctionnalités à connaître pour les tests :
 - ( 4 ) : Ici ont retrouve les connexions que vous avez créées.
 
 - ( 5 ) : Ici on trouve le résultat de la requête, dans notre cas nos données JSON.
+
+
+## Accès à la base de données avec Mongo-DB COMPASS : 
+
+
+Compass est un outil interactif gratuit qui permet d'interroger, d'optimiser et d'analyser les données MongoDB: 
+
+Pour se connecter sur la base de données, on remplis les champs de connexion :
+
+![alt text](image-1.png)
+
+On spécifie l'adresse IP et le port de la BDD : 
+
+
+![alt text](image-2.png)
+
+Ensuite pour l'authentification , on précise l'identifiant et le mot de passe de la BDD : 
+
+![alt text](image-3.png)
+
+On choisit ensuite l'option d'authentification, dans notre cas c'est SCRAM-SHA-1 : 
+
+![alt text](image-4.png)
+
+
+
+Default Authentication Database : fait référence à la base de données utilisée pour l'authentification lorsque l'option authSource n'est pas spécifiée dans l'URI de connexion à MongoDB.
+
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
