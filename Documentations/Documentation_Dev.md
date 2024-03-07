@@ -316,3 +316,23 @@ Toutes les requêtes API nécessitent une authentification de base HTTP avec un 
 **Remarques:**
 
 * Le code suppose que la base de données MongoDB est en cours d'exécution et accessible sur l'hôte local.
+
+
+## Test de l'API avec POSTMAN : 
+
+Postman est un logiciel qui se focalise sur les tests des API. Il est devenu très populaire pour tester les microservices, notamment grâce à sa simplicité et ses fonctionnalités très spécialisées.
+
+![alt text](image.png)
+
+
+Voici les principales fonctionnalités à connaître pour les tests :
+
+- ( 1 ) : Ici on peut choisir le type de requête à envoyer : GET, POST, PUT, etc, dans le cas de notre API c'est toujours des requêtes GET.
+
+- ( 2 ) : L'URL de l'API.
+
+- ( 3 ) : l'authorisation , c'est ici qu'on tape les identifiants/mot de passe pour s'authentifier afin d'accèder aux données de l'api.
+
+- ( 4 ) : Ici ont retrouve les connexions que vous avez créées.
+
+- ( 5 ) : Ici on trouve le résultat de la requête, dans notre cas nos données JSON.
