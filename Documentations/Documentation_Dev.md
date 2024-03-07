@@ -297,7 +297,7 @@ if __name__ == '__main__':
 - `/api/data/dhcp/source_port/<source_port>` : Récupère les paquets DHCP avec le port source spécifié dans la couche UDP.
 - `/api/data/dhcp/destination_port/<destination_port>` : Récupère les paquets DHCP avec le port de destination spécifié dans la couche UDP.
 - `/api/data/dhcp/server_id/<server_id>` : Récupère les paquets DHCP avec l'ID de serveur spécifié dans les options DHCP.
-- `/api/data/json/<packet_type>` : Récupère les paquets DHCP du type spécifié au format JSON.
+- `/api/data/json/<packet_type>` : Télécharge automatiquement les paquets DHCP du type spécifié en .JSON.
 
 
 ### Classes:
