@@ -12,9 +12,7 @@ class Paquet:
         def affiche_paquet(self):
             #print(self.affiche)
             return None
-
-        
-            
+           
 
 class Liste_paquets:
     def __init__(self) -> None:
@@ -95,6 +93,7 @@ def paquet_to_dict(paquet): #Transforme un paquet en dictionnaire
                 if dictionnaire[layer][element] == None:
                     dictionnaire[layer][element] = paquet[layer].getfieldval(element)
     return dictionnaire
+
 
 
 
@@ -183,9 +182,6 @@ for layer in dictionnaire.keys():
 
 
 '''
-
-
-
 
 
 #layers = [layer.name for layer in paquet.iterpayloads()] # pour avoir tous les layers d'un paquet

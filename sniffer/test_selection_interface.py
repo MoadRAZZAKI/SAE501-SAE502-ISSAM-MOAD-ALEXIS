@@ -24,3 +24,8 @@ def traitement_paquet(paquet):
     print(paquet.show())
 
 sniff(filter="", count=0,prn=traitement_paquet,iface=interface)
+
+
+
+
+#Fonctionne parfaitement

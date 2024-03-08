@@ -1,20 +1,3 @@
-from scapy.all import *
-
-
-
-class Paquet:
-    def __init__(self, paquet) -> None:
-        self.paquet = paquet
-        self.type_message = {
-            1: "DHCPDISCOVER",
-            2: "DHCPOFFER",
-            3: "DHCPREQUEST",
-            4: "DHCPDECLINE",
-            5: "DHCPACK",
-            6: "DHCPNAK",
-            7: "DHCPRELEASE",
-            8: "DHCPINFORM",
-        }
 
     
 
@@ -43,6 +26,8 @@ def request(paquet):
 
 def ack(paquet):
     print(f"DHCPACK || Le serveur {paquet[IP].getfieldval('src')} attribue l'adresse {paquet[DHCP].getfieldval('options')[4][1]} au client {paquet[DHCP].getfieldval('options')[2][1]}")
+
+
 
 traitement_par_type = {
     "DHCPDISCOVER": discover,
@@ -98,6 +83,9 @@ def traitement_paquet(paquet):
     
 
 sniff(filter="udp port 67 or 68", count=0,prn=traitement_paquet,iface='enp0s31f6')
+
+
+
 
 
 
