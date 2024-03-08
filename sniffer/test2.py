@@ -86,6 +86,3 @@ sniff(filter="udp port 67 or 68", count=0,prn=traitement_paquet,iface='enp0s31f6
 
 
 
-
-
-
