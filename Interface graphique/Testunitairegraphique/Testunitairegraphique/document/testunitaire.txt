@@ -1,8 +1,0 @@
-1, time, 192.168.1.5, 192.168.1.2, DHCPACK, d0:7e:28:d2:84:8c, macdst, info 3
-2, time, 192.168.1.5, 192.168.1.2, DHCPACK, 10.10.10.10, macdst, Informations 1
-3, time, 192.168.1.2, 192.168.1.2, DHCPDECLINE, 10.10.10.10, macdst, Informations 1
-4, time, 192.168.1.2, 192.168.1.2, DHCPDECLINE, d0:7e:28:d2:84:8c, macdst, Informations 1
-5, time, 192.168.1.3, 192.168.1.2, DHCPREQUEST, 11.10.10.10, macdst, Informations 1
-6, time, 192.168.1.4, 192.168.1.2, DHCPREQUEST, d0:7e:28:d2:84:8c, macdst, Informations 1
-7, time, 192.168.1.3, 192.168.1.2, DHCPREQUEST, 10.10.11.10, macdst, Informations 1
-8, time, 192.168.1.4, 192.168.1.2, DHCPREQUEST, d0:7e:28:d2:84:8c, macdst, Informations 1
