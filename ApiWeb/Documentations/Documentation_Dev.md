@@ -428,3 +428,7 @@ Default Authentication Database : fait référence à la base de données utilis
 ![alt text](images/image-5.png)
 
 ![alt text](images/image-6.png)
+
+On pourra ensuite voir nos données en format json à partir de mongodb compass: 
+
+![alt text](images/image33.png)
