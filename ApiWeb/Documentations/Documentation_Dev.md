@@ -322,7 +322,7 @@ Toutes les requêtes API nécessitent une authentification de base HTTP avec un 
 
 Postman est un logiciel qui se focalise sur les tests des API. Il est devenu très populaire pour tester les microservices, notamment grâce à sa simplicité et ses fonctionnalités très spécialisées.
 
-![alt text](image.png)
+![alt text](/images/image.png)
 
 
 Voici les principales fonctionnalités à connaître pour les tests :
@@ -405,26 +405,26 @@ Compass est un outil interactif gratuit qui permet d'interroger, d'optimiser et 
 
 Pour se connecter sur la base de données, on remplis les champs de connexion :
 
-![alt text](image-1.png)
+![alt text](/images/image-1.png)
 
 On spécifie l'adresse IP et le port de la BDD : 
 
 
-![alt text](image-2.png)
+![alt text](/images/image-2.png)
 
 Ensuite pour l'authentification , on précise l'identifiant et le mot de passe de la BDD : 
 
-![alt text](image-3.png)
+![alt text](/images/image-3.png)
 
 On choisit ensuite l'option d'authentification, dans notre cas c'est SCRAM-SHA-1 : 
 
-![alt text](image-4.png)
+![alt text](/images/image-4.png)
 
 
 
 Default Authentication Database : fait référence à la base de données utilisée pour l'authentification lorsque l'option authSource n'est pas spécifiée dans l'URI de connexion à MongoDB.
 
 
-![alt text](image-5.png)
+![alt text](/images/image-5.png)
 
-![alt text](image-6.png)
+![alt text](/images/image-6.png)
